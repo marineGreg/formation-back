@@ -9,7 +9,7 @@ $categories = $stmt->fetchAll();
 
 require __DIR__ . '/../layout/top.php';
 ?>
-    <h1>Gestion catégories</h1>
+    <h1>Gestion des catégories</h1>
     
     <p><a href="categorie-edit.php">Ajouter une catégorie</a></p>
     

@@ -12,7 +12,7 @@ $produits = $stmt->fetchAll();
 
 require __DIR__ . '/../layout/top.php';
 ?>
-    <h1>Gestion produits</h1>
+    <h1>Gestion des produits</h1>
     
     <p><a href="produit-edit.php">Ajouter un produit</a></p>
     

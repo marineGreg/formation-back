@@ -50,7 +50,7 @@ $statuts = [
 
 require __DIR__ . '/../layout/top.php';
 ?>
-    <h1>Gestion commandes</h1>
+    <h1>Gestion des commandes</h1>
     
 <table class="table table-striped">
   <thead>
