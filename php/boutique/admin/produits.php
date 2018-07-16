@@ -39,11 +39,11 @@ require __DIR__ . '/../layout/top.php';
           <td><?= $produit['nom_categorie'] ?></td>
           <td>
             <a href="produit-edit.php?id=<?= $produit['id']; ?>" 
-               class="btn btn-info">
+               class="btn btn-info btn-sm">
                   Modifier
             </a>
             <a href="produit-delete.php?id=<?= $produit['id']; ?>" 
-               class="btn btn-outline-danger">
+               class="btn btn-outline-danger btn-sm">
                   Supprimer
             </a>
           </td>

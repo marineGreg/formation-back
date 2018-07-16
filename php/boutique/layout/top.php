@@ -34,6 +34,11 @@
                                 Gestion commandes
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= RACINE_WEB; ?>admin/membres.php" class="nav-link">
+                                Gestion membres
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
