@@ -29,7 +29,12 @@ require __DIR__ . '/../layout/top.php';
 ?>
     <tr>
         <td><?= $utilisateur['id']; ?></td>
-        <td><?= $utilisateur['utilisateur']; ?></td>
+        <td>
+            <a href="<?= RACINE_WEB ?>admin/membre.php?id=<?= $utilisateur['id']; ?>" 
+               class="nav-link">
+                    <?= $utilisateur['utilisateur']; ?>
+            </a>
+        </td>
         <td><?= $utilisateur['email']; ?></td>
         <td><?= $utilisateur['adresse']; ?></td>
         <td><?= $utilisateur['cp']; ?></td>

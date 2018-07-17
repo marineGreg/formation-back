@@ -14,7 +14,7 @@
       <?php
       if (isUserAdmin()) :
       ?>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-info">
             <div class="container navbar-nav">
                 <a class="navbar-brand" href="#">Admin</a>
                 <div class="navbar-collapse">
