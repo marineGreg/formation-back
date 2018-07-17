@@ -4,16 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/formation-back/php/boutique/inscription.php</file>
-            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/connexion.php</file>
-            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/gestion_membres.php</file>
             <file>file:/C:/xampp/htdocs/formation-back/php/boutique/index.php</file>
             <file>file:/C:/xampp/htdocs/formation-back/php/boutique/include/fonctions.php</file>
+            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/membre-edit.php</file>
             <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/produits.php</file>
             <file>file:/C:/xampp/htdocs/formation-back/php/boutique/include/init.php</file>
-            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/commandes.php</file>
             <file>file:/C:/xampp/htdocs/formation-back/php/boutique/layout/top.php</file>
+            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/produit-delete.php</file>
+            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/produit-edit.php</file>
+            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/membre-delete.php</file>
+            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/membres.php</file>
+            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/categorie-edit.php</file>
             <file>file:/C:/xampp/htdocs/formation-back/php/boutique/admin/categories.php</file>
-            <file>file:/C:/xampp/htdocs/formation-back/php/boutique/panier.php</file>
         </group>
     </open-files>
 </project-private>

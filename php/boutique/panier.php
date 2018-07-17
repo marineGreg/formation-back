@@ -91,6 +91,7 @@ else :
 <table class="table table-striped">
   <thead>
     <tr>
+      <th scope="col"></th>
       <th scope="col">Nom du Produit</th>
       <th scope="col">Prix unitaire</th>
       <th scope="col">Quantité</th>
@@ -102,6 +103,7 @@ else :
     foreach ($_SESSION['panier'] as $produitId => $produit) :
 ?>
     <tr>
+        <td><img height="110px" src="<?= $produit['photo']; ?>"></td>
         <td><?= $produit['nom']; ?></td>
         <td><?= prixFr($produit['prix']); ?></td>
         <td>

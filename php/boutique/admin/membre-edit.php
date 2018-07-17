@@ -4,7 +4,7 @@ require_once __DIR__ . '/../include/init.php';
 adminSecurity();
 
 $errors = [];
-$civilite = $nom = $prenom = $email = $ville = $cp = $adresse = '';
+$civilite = $nom = $prenom = $pseudo = $email = $ville = $cp = $adresse = '';
 
 if (!empty($_POST)) {
     sanitizePost();
@@ -14,7 +14,7 @@ if (!empty($_POST)) {
         $errors[] = 'La civilité est obligatoire';
     }
     
-    if (empty($nom)) {
+if (empty($nom)) {
         $errors[] = 'Le nom est obligatoire';
     }
     
@@ -44,16 +44,6 @@ if (!empty($_POST)) {
         $errors[] = "L'adresse est obligatoire";
     }
     
-    if (empty($mdp)) {
-        $errors[] = 'Le mot de passe est obligatoire';
-    } elseif (!preg_match('/^[a-zA-Z0-9_-]{6,20}$/', $mdp)) {
-        $errors[] = "Le mot de passe doit faire entre 6 et 20 caractères et ne contenir que des chiffres, des lettres ou les caractères _ et -";
-    }
-    
-    if ($mdp != $mdp_confirm) {
-        $errors[] = 'Le mot de passe et sa confirmation ne sont pas identiques';
-    }
-    
     if (empty($errors)) {
         
         if (!empty($_GET['id'])) {
@@ -62,11 +52,11 @@ UPDATE utilisateur SET
     civilite = :civilite,                
     nom = :nom,
     prenom = :prenom,
+    pseudo = :pseudo,
     email = :email,
-    mdp = :mdp,
     adresse = :adresse,
     cp = :cp,
-    ville = :ville,                
+    ville = :ville                
 WHERE id = :id
 SQL;
             $stmt = $pdo->prepare($query);
@@ -74,12 +64,12 @@ SQL;
                 ':civilite' => $civilite,
                 ':nom' => $nom,
                 ':prenom' => $prenom,
+                ':pseudo' => $pseudo,
                 ':email' => $email,
-                ':mdp' => password_hash($mdp, PASSWORD_BCRYPT),
                 ':adresse' => $adresse,
                 ':cp' => $cp,
                 ':ville' => $ville,
-                ':id' => $id
+                ':id' => $_GET['id']
             ]);
         } else {
             $query = <<<SQL
@@ -87,8 +77,8 @@ INSERT INTO utilisateur (
     civilite,                
     nom,
     prenom,
+    pseudo,
     email,
-    mdp,
     adresse,
     cp,
     ville
@@ -97,7 +87,6 @@ INSERT INTO utilisateur (
     :nom,
     :prenom,
     :email,
-    :mdp,
     :adresse,
     :cp,
     :ville
@@ -108,17 +97,19 @@ SQL;
                 ':civilite' => $civilite,
                 ':nom' => $nom,
                 ':prenom' => $prenom,
+                ':pseudo' => $pseudo,
                 ':email' => $email,
-                ':mdp' => password_hash($mdp, PASSWORD_BCRYPT),
                 ':adresse' => $adresse,
                 ':cp' => $cp,
                 ':ville' => $ville,
             ]);
         }
-        
+        // Mettre la redirection en commentaire permet de voir le message d'erreur s'il y en a un
         setFlashMessage('Le membre a été modifié');
         header('Location: membres.php');
         die;
+         
+         
    }
 } elseif (!empty($_GET['id'])) {
     $query = 'SELECT * FROM utilisateur WHERE id = ' . (int)$_GET['id'];
@@ -161,28 +152,24 @@ endif;
         <input type="text" name="prenom" class="form-control" value="<?= $prenom; ?>">
     </div>
     <div class="form-group">
+        <label>Pseudo</label>
+        <input type="text" name="pseudo" class="form-control" value="<?= $pseudo; ?>">
+    </div>
+    <div class="form-group">
         <label>email</label>
         <input type="text" name="email" class="form-control" value="<?= $email; ?>">
-    </div>
-    <div class="form-group">
-        <label>Ville</label>
-        <input type="text" name="ville" class="form-control" value="<?= $ville; ?>">
-    </div>
-    <div class="form-group">
-        <label>Code postal</label>
-        <input type="text" name="cp" class="form-control" value="<?= $cp; ?>">
     </div>
     <div class="form-group">
         <label>Adresse</label>
         <textarea name="adresse" class="form-control"><?= $adresse; ?></textarea>
     </div>
     <div class="form-group">
-        <label>Mot de passe</label>
-        <input type="password" name="mdp" class="form-control">
+        <label>Code postal</label>
+        <input type="text" name="cp" class="form-control" value="<?= $cp; ?>">
     </div>
     <div class="form-group">
-        <label>Confirmation du Mot de passe</label>
-        <input type="password" name="mdp_confirm" class="form-control">
+        <label>Ville</label>
+        <input type="text" name="ville" class="form-control" value="<?= $ville; ?>">
     </div>
     <div class="form-btn-group text-right">
         <button class="btn btn-info">
