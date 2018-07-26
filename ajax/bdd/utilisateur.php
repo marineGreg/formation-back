@@ -14,13 +14,13 @@ $utilisateur = $stmt->fetch();
     <dd><?= $utilisateur['nom']; ?></dd>
     <dt>Prénom</dt>
     <dd><?= $utilisateur['prenom']; ?></dd>
+    <dt>email</dt>
+    <dd id="email"><?= $utilisateur['email']; ?></dd>
     <dt>Adresse</dt>
     <dd>
         <?= $utilisateur['adresse']; ?><br>
         <?= $utilisateur['cp'] . ' ' . $utilisateur['ville']; ?>
     </dd>
-    <dt>email</dt>
-    <dd><?= $utilisateur['email']; ?></dd>
     <dt>Téléphone</dt>
     <dd><?= $utilisateur['tel']; ?></dd>
 </dl>

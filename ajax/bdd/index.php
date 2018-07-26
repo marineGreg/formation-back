@@ -54,14 +54,19 @@ $utilisateurs = $stmt->fetchAll();
                             'id=' + id, // -- en lui passant l'id venant du select
                             // -- fonction qui traite la réponse d'utilisateur.php
                             function(response){ 
-                                // on met le contenu de la réponse dans la div#detail
+                                // -- on met le contenu de la réponse dans la div#detail
                                 $('#detail').html(response);
                             }
                         );
                     } else { 
-                        // - si on a choisi l'option vide
+                        // -- si on a choisi l'option vide
                         $('#detail').html('');
                     }
+                });
+                // -- pour anticiper un évènement sur un élément du DOM qui n'existe 
+                // pas encore à la réception de la page
+                $('#detail').on('click', '#email', function(){
+                    alert('ici');
                 });
             });
         </script>
