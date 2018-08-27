@@ -26,7 +26,7 @@ if (!empty($_POST)) { // si le formulaire a été soumis
             $stmt = $pdo->prepare($query);
             $stmt->execute([
                 ':nom' => $nom,
-                ':id' => $$_GET['id']
+                ':id' => $_GET['id']
             ]);
         } else { // création
             // insertion en bdd
