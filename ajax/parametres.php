@@ -28,7 +28,7 @@
             document.getElementById('qui').addEventListener(
                 'submit',
                 function(event){
-                    // annule la soumission du formulaire
+                    // -- annule la soumission du formulaire
                     event.preventDefault();
                     
                     var prenom = document.getElementById('prenom').value;
@@ -51,13 +51,13 @@
                         // --- en POST
                         xhr.open('POST', 'hello.php');
                         
-                        // on ajoute une entête HTTP pour signifier qu'il y a des données en POST
+                        // -- on ajoute une entête HTTP pour signifier qu'il y a des données en POST
                         xhr.setRequestHeader(
                             'Content-type',
                             'application/x-www-form-urlencoded'
                         );
                         
-                        // on passe la query string au moment de l'envoi
+                        // -- on passe la query string au moment de l'envoi
                         xhr.send(queryString);
                     }
                 }
